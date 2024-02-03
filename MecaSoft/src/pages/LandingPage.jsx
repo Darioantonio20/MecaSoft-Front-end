@@ -1,7 +1,9 @@
+import NavBar from "../atoms/NavBar";
+
 function LandingPage() {
     return ( 
         <>
-        Landing Page
+        <NavBar/>        Landing Page
         </>
      );
 }
