@@ -1,39 +1,94 @@
+/* Parte derecha del Form */
+
 .divPadre{
     background-color: #eee;
 }
 .red-background {
     background-color: red;
 }
-.inputForm {
-    background-color: #383838;
-    border: 1ex solid none;
-    border-top-width: 1.7em;
-    margin: 0;
-    padding: 0;
-    color: #383838;
-    word-wrap: break-word;
-    outline: 7px solid #383838;
-    height: 1.875rem;
-    font-size: 1.0625rem;
-    text-align: center;
-    transition: all 1s;
-    width: 100%;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    border-radius: 1%;
-    font-weight: bold;
-    font-family: 'Courier New', Courier, monospace;
+
+/* Label effect */
+
+.typing-effect {
+    border-right: .15em solid #84130C;
+    white-space: nowrap;
+    overflow: hidden;
+    animation: typing 4s steps(40, end), blink-caret .75s step-end infinite;
 }
 
-.inputForm:hover {
-    border-top-width: 0.2em;
-    background-color: #ffffff;
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
 }
 
-.inputForm:focus {
-    border-top-width: 0.2em;
-    background-color: #ffffff;
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: #84130C; }
 }
+
+/* Input */
+
+
+.form__group_one {
+    position: relative;
+  }
+  
+  .form__group_oneform__field {
+    border: 1px solid silver !important;
+    border-radius: 5px;
+    box-sizing: border-box;
+    color: #84130C;
+    height: 40px;
+    padding: 0rem 15px;
+    box-shadow: 5px 5px 0 0;
+  }
+  
+  .form__group_oneform__field::placeholder {
+    color: transparent;
+  }
+  
+  .form__group_oneform__field:placeholder-shown ~ .form__group_oneform__label {
+    top: 10px;
+    border-right: none;
+    border-left: none;
+  }
+  
+  .form__group_oneform__label {
+    background-color: white;
+    border-left: 1px solid silver;
+    border-right: 1px solid silver;
+    color: #9b9b9b;
+    display: block;
+    font-size: 0.9em;
+    margin-left: 10px;
+    padding: 0 10px;
+    pointer-events: none;
+    position: absolute;
+    top: -10px;
+    transition: 0.2s;
+  }
+  
+  .form__group_oneform__field:focus {
+    border: 1px solid #84130C !important;
+    outline: none;
+    box-shadow: none;
+    transform: matrix3d();
+    animation-duration: 1;
+  }
+  
+  .form__group_oneform__field:focus ~ .form__group_oneform__label {
+    background-color: white;
+    border-right: 1px solid #84130C;
+    border-left: 1px solid #84130C;
+    color: #84130C;
+    font-size: 0.9em;
+    margin-left: 10px;
+    padding: 0 10px;
+    position: absolute;
+    top: -10px;
+    transition: 0.2s;
+  }
+  
 
 /* Botón */
 

@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import NavBar from "../atoms/NavBar";
+import ImgLogoMecaSoftUp from "../assets/img/LogoMecaSoftUp.png";
 import "../assets/style/InicioDeSesion.css";
 
 function Registro() {
@@ -12,7 +13,7 @@ function Registro() {
 
     return ( 
         <>
-        <NavBar/>
+         <NavBar/>
             <div className="h-100 gradient-form divPadre">
                 <div className="container py-5 h-100">
                     <div className="row d-flex justify-content-center align-items-center h-100">
@@ -22,42 +23,51 @@ function Registro() {
                                     <div className="col-lg-6">
                                         <div className="card-body p-md-5 mx-md-4">
                                             <div className="text-center">
-                                                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/lotus.webp" width={185} alt="logo"/>
-                                                <h4 className="mt-1 mb-5 pb-1">MecaSoft</h4>
+                                                <img src={ImgLogoMecaSoftUp} loading='lazy' width={185} alt="logo"/>
+                                                <h4 className="mt-1 mb-5 pb-1 typing-effect">Llene el siguiente formulario.</h4>
                                             </div>
                                             <form className=''>
-                                                <p className='text-center'>Antes de registrarte, por favor rellena los siguiente campos.</p>
-                                                <div className="form-outline mb-4">
-                                                    <input type="text" id="" name="text" className="inputForm" placeholder="Nombre completo" required/>
+                                                
+                                                <div class="form__group_one mt-5 mb-5">
+                                                    <input type="text" class="form__group_oneform__field w-100" placeholder="Input text"/>
+                                                    <label for="name" class="form__group_oneform__label"> Nombre completo </label>
                                                 </div>
-                                                <div className="form-outline mb-4">
-                                                    <input type="text" id="" name="text" className="inputForm" placeholder="Nombre de usuario" required/>
+                                                <div class="form__group_one mt-5 mb-5">
+                                                    <input type="text" class="form__group_oneform__field w-100" placeholder="Input text"/>
+                                                    <label for="name" class="form__group_oneform__label"> Nombre de usuario </label>
                                                 </div>
-                                                <div className="form-outline mb-4">
-                                                    <input type="text" id="" name="text" className="inputForm" placeholder="Correo" required/>
+                                                <div class="form__group_one mt-5 mb-5">
+                                                    <input type="text" class="form__group_oneform__field w-100" placeholder="Input text"/>
+                                                    <label for="name" class="form__group_oneform__label"> Correo electrónico  </label>
                                                 </div>
-                                                <div className="form-outline mb-4">
-                                                    <input type="text" id="" name="text" className="inputForm" placeholder="Matricula" required/>
+                                                <div class="form__group_one mt-5 mb-5">
+                                                    <input type="text" class="form__group_oneform__field w-100" placeholder="Input text"/>
+                                                    <label for="name" class="form__group_oneform__label"> Matrícula </label>
                                                 </div>
-                                                <div className="form-outline mb-4">
-                                                    <input type="text" id="" name="text" className="inputForm" placeholder="Contraseña" required/>
+                                                <div class="form__group_one mt-5 mb-5">
+                                                    <input type="text" class="form__group_oneform__field w-100" placeholder="Input text"/>
+                                                    <label for="name" class="form__group_oneform__label"> Contraseña </label>
                                                 </div>
-                                                <div className="form-outline mb-5">
-                                                    <input type="text" id="" name="text" className="inputForm" placeholder="Contraseña confirmar" required/>
+                                                <div class="form__group_one mb-5">
+                                                    <input type="text" class="form__group_oneform__field w-100" placeholder="Input text"/>
+                                                    <label for="name" class="form__group_oneform__label"> Confirmar contraseña </label>
                                                 </div>
                                                 {/*<div className="text-center pt-1 mb-5 pb-1">
                                                     <a className="text-muted" href="#!">Olvidaste tu contraseña?</a>
                                                 </div>*/}
                                                 <div className='text-center d-flex justify-content-center mt-5 mb-5'>
-                                                    <div className="container-button">
-                                                        <div className="hover bt-1"></div>
-                                                        <div className="hover bt-2"></div>
-                                                        <div className="hover bt-3"></div>
-                                                        <div className="hover bt-4"></div>
-                                                        <div className="hover bt-5"></div>
-                                                        <div className="hover bt-6"></div>
-                                                        <button className='buttonForm'></button>
-                                                    </div>
+                                                    <button style={{border: 'none', backgroundColor: 'transparent'}}>
+                                                        <div className="container-button mt-3">
+                                                            <div className="hover bt-1"></div>
+                                                            <div className="hover bt-2"></div>
+                                                            <div className="hover bt-3"></div>
+                                                            <div className="hover bt-4"></div>
+                                                            <div className="hover bt-5"></div>
+                                                            <div className="hover bt-6"></div>
+                                                            <button className='buttonForm'></button>
+                                                        </div>
+                                                    </button>
+                                                        
                                                 </div>
                                                 <div className="d-flex align-items-center justify-content-center pb-4">
                                                     <p className="mb-0 me-2">Ya tienes cuenta?</p>
