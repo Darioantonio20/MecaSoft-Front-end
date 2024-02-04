@@ -26,7 +26,7 @@ function InicioDeSesion() {
                                                 <h4 className="mt-1 mb-5 pb-1">MecaSoft</h4>
                                             </div>
                                             <form className=''>
-                                                <p className='text-center'>Por favor rellena los siguiente campos.</p>
+                                                <p className='text-center'>Antes de iniciar sesión, por favor rellena los siguiente campos.</p>
                                                 <div className="form-outline mb-4">
                                                     <input type="text" id="" name="text" className="inputForm" placeholder="Nombre de usuario" required/>
                                                 </div>
@@ -49,7 +49,7 @@ function InicioDeSesion() {
                                                 </div>
                                                 <div className="d-flex align-items-center justify-content-center pb-4">
                                                     <p className="mb-0 me-2">No tienes cuenta?</p>
-                                                    <button onClick={redirectToRegister} type='button' className="btn btn-outline-danger">Crear cuenta</button>
+                                                    <button onClick={redirectToRegister} type='button' className="btn btn-outline-danger">Crea una</button>
                                                 </div>
                                             </form>
                                         </div>
