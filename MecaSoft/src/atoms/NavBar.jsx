@@ -11,10 +11,6 @@ function NavBar() {
     navigate('/inicioDeSesion');
   };
 
-  const redirectToRegister = () => {
-    navigate('/registro');
-  };
-
   return (
     <div className="container">
       <header className="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
@@ -33,7 +29,6 @@ function NavBar() {
 
         <div className="col-md-3 text-end">
           <button onClick={redirectToLogin} type="button" className="btn btn-outline-danger me-2">Inicio de sesión</button>
-          <button onClick={redirectToRegister} type="button" className="btn btn-danger">Registro</button>
         </div>
       </header>
     </div>
