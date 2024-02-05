@@ -28,3 +28,29 @@
     font-weight: bold;
     margin-top: 20px;
 }
+/* tecleado en animación */
+
+.title {
+    border-right: .15em solid;
+    white-space: nowrap;
+    overflow: hidden; 
+    width: 0;
+    color: #c5160a;
+}
+
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+.typing {
+    animation: typing 4s steps(40, end), blink-caret .75s step-end infinite;
+    animation-fill-mode: forwards; /* Agrega esta línea */
+}
+
+.text, .highlight {
+    text-align: justify;
+}
+
+
+

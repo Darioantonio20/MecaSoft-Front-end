@@ -1,6 +1,12 @@
+import React, { useEffect } from 'react';
 import "../assets/style/Mision.css";
 
 function Section3() {
+    useEffect(() => {
+        const title = document.querySelector('.title');
+        title.classList.add('typing');
+    }, []);
+
     return ( 
         <>
             <div className="section3">
