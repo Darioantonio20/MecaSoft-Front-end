@@ -43,8 +43,8 @@ function Section1() {
             <section id="constructions" class="constructions">
                 <div class="container" data-aos="fade-up">
                     <div class="section-header">
-                        <h2>Construcciones Mecatrónicas</h2>
-                        <p>La mecatrónica juega un papel crucial en el diseño y construcción de sistemas y productos eficientes. Desde la robótica hasta la automatización industrial, la mecatrónica está transformando la forma en que construimos y operamos maquinaria.</p>
+                        <h1 style={{color: 'red', textAlign: 'center'}} className='mt-3 mb-3'>Construcciones Mecatrónicas</h1>
+                        <h5 style={{textAlign: 'center'}} className='mt-3 mb-5'>La mecatrónica, combinando robótica y automatización industrial, está revolucionando el diseño, construcción y operación de sistemas eficientes.</h5>
                     </div>
                     <div class="row gy-4">
                     {cardData.map((card, index) => (
@@ -58,8 +58,8 @@ function Section1() {
                                     </div>
                                     <div class="col-xl-7 d-flex align-items-center">
                                         <div class="card-body">
-                                            <h4 class="card-title">{card.title}</h4>
-                                            <p>{card.text}</p>
+                                            <h5 class="card-title mb-2" style={{color: 'red'}}>{card.title}</h5>
+                                            <p style={{textAlign: 'justify'}}>{card.text}</p>
                                         </div>
                                     </div>
                                 </div>
