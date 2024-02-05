@@ -8,7 +8,7 @@
 
 #h4-container {
     position: relative;
-    top: 10rem; /* Adjust this value as needed */
+    top: 2rem; /* Adjust this value as needed */
 }
 
 input[type="range"]::-webkit-slider-runnable-track {
@@ -82,3 +82,99 @@ input[type="text"] {
     border-radius: 5px;
     border: 1px solid #ccc;
 }
+
+/* Button Slider */
+
+.buttonSlider {
+    padding: 0.1em 0.25em;
+    width: 13em;
+    height: 4.2em;
+    background-color: #b80f0f;
+    border: 0.08em solid #fff;
+    border-radius: 5rem;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.buttonSlider span {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    bottom: 0.4em;
+    width: 7.25em;
+    height: 2.2em;
+    background-color: #bd0c0c;
+    border-radius: 5rem;
+    font-size: 1.5em;
+    color: #fff;
+    border: 0.08em solid #fff;
+    box-shadow: 0 0.4em 0.1em 0.019em #fff;
+}
+
+.buttonSlider span:hover {
+    transition: all 0.5s;
+    transform: translate(0, 0.4em);
+    box-shadow: 0 0 0 0 #fff;
+}
+
+.buttonSlider span:not(hover) {
+    transition: all 1s;
+}
+
+/* TuercasCard */
+
+.bg {
+    padding: 20px;
+    border-radius: 10px;
+    background-color: var(--base-color);
+    --base-color: #212121;
+  }
+  
+  .loader {
+    width: 60px;
+    height: 40px;
+    position: relative;
+    display: inline-block;
+    background-color: var(--base-color);
+  }
+  
+  .loader::before {
+    content: '';
+    left: 0;
+    top: 0;
+    position: absolute;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: #FFF;
+    background-image: radial-gradient(circle 8px at 18px 18px, var(--base-color) 100%, transparent 0), radial-gradient(circle 4px at 18px 0px, var(--base-color) 100%, transparent 0), radial-gradient(circle 4px at 0px 18px, var(--base-color) 100%, transparent 0), radial-gradient(circle 4px at 36px 18px, var(--base-color) 100%, transparent 0), radial-gradient(circle 4px at 18px 36px, var(--base-color) 100%, transparent 0), radial-gradient(circle 4px at 30px 5px, var(--base-color) 100%, transparent 0), radial-gradient(circle 4px at 30px 5px, var(--base-color) 100%, transparent 0), radial-gradient(circle 4px at 30px 30px, var(--base-color) 100%, transparent 0), radial-gradient(circle 4px at 5px 30px, var(--base-color) 100%, transparent 0), radial-gradient(circle 4px at 5px 5px, var(--base-color) 100%, transparent 0);
+    background-repeat: no-repeat;
+    box-sizing: border-box;
+    animation: rotationBack 3s linear infinite;
+  }
+  
+  .loader::after {
+    content: '';
+    left: 35px;
+    top: 15px;
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: #FFF;
+    background-image: radial-gradient(circle 5px at 12px 12px, var(--base-color) 100%, transparent 0), radial-gradient(circle 2.5px at 12px 0px, var(--base-color) 100%, transparent 0), radial-gradient(circle 2.5px at 0px 12px, var(--base-color) 100%, transparent 0), radial-gradient(circle 2.5px at 24px 12px, var(--base-color) 100%, transparent 0), radial-gradient(circle 2.5px at 12px 24px, var(--base-color) 100%, transparent 0), radial-gradient(circle 2.5px at 20px 3px, var(--base-color) 100%, transparent 0), radial-gradient(circle 2.5px at 20px 3px, var(--base-color) 100%, transparent 0), radial-gradient(circle 2.5px at 20px 20px, var(--base-color) 100%, transparent 0), radial-gradient(circle 2.5px at 3px 20px, var(--base-color) 100%, transparent 0), radial-gradient(circle 2.5px at 3px 3px, var(--base-color) 100%, transparent 0);
+    background-repeat: no-repeat;
+    box-sizing: border-box;
+    animation: rotationBack 4s linear infinite reverse;
+  }
+  
+  @keyframes rotationBack {
+    0% {
+      transform: rotate(0deg);
+    }
+  
+    100% {
+      transform: rotate(-360deg);
+    }
+  }  
