@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import NavBar from "../atoms/NavBar";
 import ImgLogoMecaSoftUp from "../assets/img/LogoMecaSoftUp.png";
+import ImgFormLadoDerechoInicioDeSesion from "../assets/img/imgFormLadoDerechoInicioDeSesion.svg";
 import "../assets/style/Forms.css";
 import "../assets/style/Reloader.css";
 
@@ -107,8 +108,11 @@ function InicioDeSesion() {
                                                     </form>
                                                 </div>
                                             </div>
-                                            <div className="col-lg-6 d-flex align-items-center gradient-custom-2 red-background">
-                                                <div className="text-white px-3 py-4 p-md-5 mx-md-4">
+                                            <div className="col-lg-6 d-flex align-items-center justify-content-center gradient-custom-2 red-background">
+                                                <div className="text-white px-3 py-4 p-md-5 mx-md-4 text-center">
+                                                    <h1 className="mb-4 display-6 display-md-5 display-lg-4">MecaSoft</h1>
+                                                    <p className="animated-text mb-0 fs-5 fs-md-4 fs-lg-3">Los ingenieros mecatrónicos diseñan, integran y desarrollan diversos productos</p>
+                                                    <img src={ImgFormLadoDerechoInicioDeSesion} loading='lazy' className="img-fluid" width={500} alt="Img Form"/>
                                                 </div>
                                             </div>
                                         </div>
