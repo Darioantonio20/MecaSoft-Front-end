@@ -11,6 +11,10 @@ function NavBar() {
     navigate('/inicioDeSesion');
   };
 
+  const redirecToPilotaje = () => {
+    navigate('/pilotaje');
+  }
+
   return (
     <div className="container">
       <header className="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
@@ -22,7 +26,7 @@ function NavBar() {
 
         <ul className="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
           <li><a onClick={redirectToHome} className="nav-link px-2 link-danger" style={{ cursor: 'pointer' }}>Inicio</a></li>
-          <li><a onClick={redirectToHome} className="nav-link px-2 link-danger" style={{ cursor: 'pointer' }}>Pilotaje</a></li>
+          <li><a onClick={redirecToPilotaje} className="nav-link px-2 link-danger" style={{ cursor: 'pointer' }}>Pilotaje</a></li>
           <li><a onClick={redirectToHome} className="nav-link px-2 link-danger" style={{ cursor: 'pointer' }}>Pricing</a></li>
           <li><a onClick={redirectToHome} className="nav-link px-2 link-danger" style={{ cursor: 'pointer' }}>Solicitudes</a></li>
         </ul>

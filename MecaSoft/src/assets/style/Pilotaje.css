@@ -1,0 +1,84 @@
+.App {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+}
+
+#h4-container {
+    position: relative;
+    top: 10rem; /* Adjust this value as needed */
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+    background: var(--track-color, #d3d3d3);
+    border-radius: 5rem;
+}
+
+input[type="range"]::-moz-range-track {
+    background: var(--track-color, #d3d3d3);
+    border-radius: 5rem;
+}
+
+input[type="range"] {
+    width: 80%;
+    height: 0.5rem;
+    background: var(--track-color, #d3d3d3);
+    outline: none;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+    -webkit-appearance: none;
+    appearance: none;
+    border-radius: 5rem;
+}
+
+input[type="range"]:hover {
+    opacity: 1;
+}
+
+@keyframes spin {
+    0% { 
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg); 
+    }
+    100% { 
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg); 
+    }
+}
+
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: var(--thumb-size); /* Use the CSS variable */
+    height: var(--thumb-size); /* Use the CSS variable */
+    background: url('../img/tuercaImg.png') no-repeat center;
+    background-size: cover;
+    cursor: pointer;
+    transition: width 0.2s, height 0.2s; /* Transition for size change */
+    border-radius: 50%;
+    -webkit-animation: spin 2s linear infinite; /* Add this line */
+    animation: spin 2s linear infinite; /* Add this line */
+}
+
+input[type="range"]::-moz-range-thumb {
+    width: var(--thumb-size); /* Use the CSS variable */
+    height: var(--thumb-size); /* Use the CSS variable */
+    background: url('../img/tuercaImg.png') no-repeat center;
+    background-size: cover;
+    cursor: pointer;
+    transition: width 0.2s, height 0.2s; /* Transition for size change */
+    border-radius: 50%;
+    animation: spin 2s linear infinite; /* Add this line */
+}
+
+input[type="text"] {
+    margin-top: 20px;
+    width: 80%;
+    padding: 10px;
+    font-size: 18px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
