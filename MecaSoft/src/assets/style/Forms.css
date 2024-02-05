@@ -26,6 +26,18 @@
     50% { border-color: #84130C; }
 }
 
+/* Label effect with the image right */
+
+@keyframes text-animation {
+    0% { color: rgb(255, 255, 255); }
+    50% { color: rgb(158, 158, 158); }
+    100% { color: rgb(255, 255, 255); }
+}
+
+.animated-text {
+    animation: text-animation 2s linear infinite;
+}
+
 /* Input */
 
 
@@ -260,3 +272,4 @@
         left: 50%;
     }
 }
+
