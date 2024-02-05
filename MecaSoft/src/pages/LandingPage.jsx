@@ -1,9 +1,11 @@
 import NavBar from "../atoms/NavBar";
+import Section1 from "../molecules/Section1";
 
 function LandingPage() {
     return ( 
         <>
-        <NavBar/>        Landing Page
+        <NavBar/>
+        <Section1/>        
         </>
      );
 }
