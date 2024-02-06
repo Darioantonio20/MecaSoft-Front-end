@@ -40,25 +40,25 @@ function Section1() {
 ];
     return ( 
         <>
-            <section id="constructions" class="constructions">
-                <div class="container" data-aos="fade-up">
-                    <div class="section-header">
+            <section id="constructions" className="constructions">
+                <div className="container" data-aos="fade-up">
+                    <div className="section-header">
                         <h1 style={{color: 'red', textAlign: 'center'}} className='mt-3 mb-3'>Construcciones Mecatrónicas</h1>
                         <h5 style={{textAlign: 'center'}} className='mt-3 mb-5'>La mecatrónica, combinando robótica y automatización industrial, está revolucionando el diseño, construcción y operación de sistemas eficientes.</h5>
                     </div>
-                    <div class="row gy-4">
+                    <div className="row gy-4">
                     {cardData.map((card, index) => (
-                        <div class="col-lg-6" data-aos="fade-up" data-aos-delay={100 * index} key={index}>
-                            <div class="card-item">
-                                <div class="row">
-                                    <div class="col-xl-5 d-flex align-items-center justify-content-center">
-                                        <div class="card-bg">
+                        <div className="col-lg-6" data-aos="fade-up" data-aos-delay={100 * index} key={index}>
+                            <div className="card-item">
+                                <div className="row">
+                                    <div className="col-xl-5 d-flex align-items-center justify-content-center">
+                                        <div className="card-bg">
                                             <img className="img-fluid" src={card.image}/>
                                         </div>
                                     </div>
-                                    <div class="col-xl-7 d-flex align-items-center">
-                                        <div class="card-body">
-                                            <h5 class="card-title mb-2" style={{color: 'red'}}>{card.title}</h5>
+                                    <div className="col-xl-7 d-flex align-items-center">
+                                        <div className="card-body">
+                                            <h5 className="card-title mb-2" style={{color: 'red'}}>{card.title}</h5>
                                             <p style={{textAlign: 'justify'}}>{card.text}</p>
                                         </div>
                                     </div>

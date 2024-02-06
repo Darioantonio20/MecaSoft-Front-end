@@ -81,29 +81,29 @@ function Registro() {
                                                 <h4 className="mt-1 mb-5 pb-1 typing-effect">Llene el siguiente formulario.</h4>
                                             </div>
                                             <form onSubmit={handleSubmit}>
-                                                <div class="form__group_one mt-5 mb-5">
-                                                    <input type="text" class="form__group_oneform__field w-100" placeholder="Input text" required/>
-                                                    <label for="name" class="form__group_oneform__label"> Nombre completo </label>
+                                                <div className="form__group_one mt-5 mb-5">
+                                                    <input type="text" className="form__group_oneform__field w-100" placeholder="Input text" required/>
+                                                    <label for="name" className="form__group_oneform__label"> Nombre completo </label>
                                                 </div>
-                                                <div class="form__group_one mt-5 mb-5">
-                                                    <input type="text" class="form__group_oneform__field w-100" placeholder="Input text" required/>
-                                                    <label for="name" class="form__group_oneform__label"> Nombre de usuario </label>
+                                                <div className="form__group_one mt-5 mb-5">
+                                                    <input type="text" className="form__group_oneform__field w-100" placeholder="Input text" required/>
+                                                    <label for="name" className="form__group_oneform__label"> Nombre de usuario </label>
                                                 </div>
-                                                <div class="form__group_one mt-5 mb-5">
-                                                    <input type="email" class="form__group_oneform__field w-100" placeholder="Input text" required/>
-                                                    <label for="name" class="form__group_oneform__label"> Correo electrónico  </label>
+                                                <div className="form__group_one mt-5 mb-5">
+                                                    <input type="email" className="form__group_oneform__field w-100" placeholder="Input text" required/>
+                                                    <label for="name" className="form__group_oneform__label"> Correo electrónico  </label>
                                                 </div>
-                                                <div class="form__group_one mt-5 mb-5">
-                                                    <input type="number" class="form__group_oneform__field w-100" placeholder="Input text" required/>
-                                                    <label for="name" class="form__group_oneform__label"> Matrícula </label>
+                                                <div className="form__group_one mt-5 mb-5">
+                                                    <input type="number" className="form__group_oneform__field w-100" placeholder="Input text" required/>
+                                                    <label for="name" className="form__group_oneform__label"> Matrícula </label>
                                                 </div>
-                                                <div class="form__group_one mt-5 mb-5">
-                                                    <input type="text" class="form__group_oneform__field w-100" placeholder="Input text" required/>
-                                                    <label for="name" class="form__group_oneform__label"> Contraseña </label>
+                                                <div className="form__group_one mt-5 mb-5">
+                                                    <input type="text" className="form__group_oneform__field w-100" placeholder="Input text" required/>
+                                                    <label for="name" className="form__group_oneform__label"> Contraseña </label>
                                                 </div>
-                                                <div class="form__group_one mb-5">
-                                                    <input type="text" class="form__group_oneform__field w-100" placeholder="Input text" required/>
-                                                    <label for="name" class="form__group_oneform__label"> Confirmar contraseña </label>
+                                                <div className="form__group_one mb-5">
+                                                    <input type="text" className="form__group_oneform__field w-100" placeholder="Input text" required/>
+                                                    <label for="name" className="form__group_oneform__label"> Confirmar contraseña </label>
                                                 </div>
                                                 {/*<div className="text-center pt-1 mb-5 pb-1">
                                                     <a className="text-muted" href="#!">Olvidaste tu contraseña?</a>

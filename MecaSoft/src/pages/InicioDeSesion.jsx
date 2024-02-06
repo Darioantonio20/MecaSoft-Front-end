@@ -80,13 +80,13 @@ function InicioDeSesion() {
                                                         <h4 className="mt-1 mb-5 pb-1 typing-effect">Llene el siguiente formulario.</h4>
                                                     </div>
                                                     <form onSubmit={handleSubmit}>
-                                                        <div class="form__group_one mt-5 mb-5">
-                                                            <input type="text" class="form__group_oneform__field w-100" placeholder="Input text" required/>
-                                                            <label for="name" class="form__group_oneform__label"> Nombre de usuario </label>
+                                                        <div className="form__group_one mt-5 mb-5">
+                                                            <input type="text" className="form__group_oneform__field w-100" placeholder="Input text" required/>
+                                                            <label for="name" className="form__group_oneform__label"> Nombre de usuario </label>
                                                         </div>
-                                                        <div class="form__group_one mb-5">
-                                                            <input type="text" class="form__group_oneform__field w-100" placeholder="Input text" required/>
-                                                            <label for="name" class="form__group_oneform__label"> Contraseña </label>
+                                                        <div className="form__group_one mb-5">
+                                                            <input type="text" className="form__group_oneform__field w-100" placeholder="Input text" required/>
+                                                            <label for="name" className="form__group_oneform__label"> Contraseña </label>
                                                         </div>
                                                         <div className='text-center d-flex justify-content-center mt-5 mb-5'>
                                                             <button style={{border: 'none', backgroundColor: 'transparent'}}>
