@@ -4,17 +4,53 @@ import "../assets/style/Pilotaje.css";
 import NavBar from '../atoms/NavBar';
 
 function Pilotaje() {
+    
     const [value, setValue] = useState(0);
     const [value2, setValue2] = useState(0);
     const [value3, setValue3] = useState(0);
 
-    const handleInputChange = (e) => {
-        const inputValue = e.target.value;
-        if (!isNaN(inputValue)) {
-          setValue(Number(inputValue));
-        }
-      };
+    const [x1, setX1] = useState(0);
+    const [y1, setY1] = useState(0);
+    const [x2, setX2] = useState(0);
+    const [y2, setY2] = useState(0);
 
+    const handleInputChange = (event) => {
+        const inputValue = Number(event.target.value);
+        if (!isNaN(inputValue)) {
+            switch (event.target.name) {
+                case "teta1":
+                    setValue(inputValue);
+                    break;
+                case "teta2":
+                    if (inputValue < -120 || inputValue > 120) {
+                        alert('El valor debe estar entre -120º y 120º');
+                    } else {
+                        setValue2(inputValue);
+                    }
+                    break;
+                case "z":
+                    if (inputValue < 0 || inputValue > 250) {
+                        alert('El valor debe estar entre 0mm y 250mm');
+                    } else {
+                        setValue3(inputValue);
+                    }
+                    break;
+            }
+            calculos();
+        }
+    };
+
+    function calculos() {
+        let varX1 = 25 * Math.cos(value * Math.PI / 180);
+        let varY1 = 25 * Math.sin(value * Math.PI / 180);
+        let varX2 = 25 * Math.cos(value * Math.PI / 180) + 15 * Math.cos((value + value2) * Math.PI / 180);
+        let varY2 = 25 * Math.sin(value * Math.PI / 180) + 15 * Math.sin((value + value2) * Math.PI / 180);
+
+        setX1(varX1.toFixed(3));
+        setY1(varY1.toFixed(3));
+        setX2(varX2.toFixed(3));
+        setY2(varY2.toFixed(3));
+    }
     const calculateSize = (value) => {
         const maxSize = 40;
         return `${maxSize}px`;
@@ -25,7 +61,7 @@ function Pilotaje() {
         document.documentElement.style.setProperty('--track-color', `rgb(${colorIntensity}, 0, 0)`);
     }, [value]);
 
-    const askForValue = () => {
+      const askForValue = () => {
         Swal.fire({
             title: 'Introduzca el valor',
             input: 'number',
@@ -97,24 +133,6 @@ function Pilotaje() {
         });
     };
 
-    const handleInputChange2 = (event) => {
-        const inputValue = event.target.value;
-        if (inputValue < -120 || inputValue > 120) {
-          alert('El valor debe estar entre -120º y 120º');
-        } else {
-          setValue2(Number(inputValue));
-        }
-      };
-
-    const handleInputChange3 = (event) => {
-        const inputValue = event.target.value;
-        if (inputValue < 0 || inputValue > 250) {
-          alert('El valor debe estar entre 0mm y 250mm');
-        } else {
-          setValue3(Number(inputValue));
-        }
-      };
-    
     return (
         <>
         <NavBar />
@@ -146,6 +164,7 @@ function Pilotaje() {
                                     max="80"
                                     value={value} 
                                     onChange={handleInputChange} 
+                                    name="teta1"
                                     style={{ 
                                         '--thumb-size': calculateSize(value)
                                     }}
@@ -154,7 +173,7 @@ function Pilotaje() {
                             <div id="h4-container" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                                 <div id="h4-subcontainer" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                                     <h5 style={{ fontSize: '1.6em' }}>
-                                    θ1: {value}º
+                                        θ1: {value}º
                                         <span></span>
                                     </h5>
                                 </div>
@@ -182,7 +201,8 @@ function Pilotaje() {
                                     min="-120"
                                     max="120"
                                     value={value2} 
-                                    onChange={handleInputChange2} 
+                                    onChange={handleInputChange} 
+                                    name="teta2"
                                     style={{ 
                                         '--thumb-size': calculateSize(value2)
                                     }}
@@ -219,7 +239,8 @@ function Pilotaje() {
                                     min="0"
                                     max="250"
                                     value={value3} 
-                                    onChange={handleInputChange3} 
+                                    onChange={handleInputChange} 
+                                    name="z"
                                     style={{ 
                                         '--thumb-size': calculateSize(value3)
                                     }}
@@ -237,39 +258,57 @@ function Pilotaje() {
                     </div>
                 </div>
             </div>
-            <div className="col-6" style={{ display: 'flex', justifyContent: 'space-evenly', alignItems: 'center', marginTop: '3rem', marginBottom: '3rem', marginLeft: 'auto', marginRight: 'auto', backgroundColor: '#f0f0f0', color: '#121111', textShadow: '2px 2px #999999', borderRadius: '10px', padding: '20px' }}>
-                <h1><b>X1:</b> {value}</h1>
-                <h1><b>Y1:</b> {value2}</h1>
-                <h1><b>X2:</b> {value3}</h1>
-                <h1><b>Y2:</b> {value3}</h1>
-            </div>
-            <div className='mb-5 mt-5' style={{ display: 'flex', justifyContent: 'center' }}>
-                <button className='buttonSend text-center'>
-                    <div className="svg-wrapper-1">
-                        <div className="svg-wrapper">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-                                <path fill="none" d="M0 0h24v24H0z"></path>
-                                <path fill="currentColor" d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z"></path>
-                            </svg>
-                        </div>
+            <div className="d-flex flex-column flex-lg-row justify-content-center align-items-center">
+                <div className="col-12 col-lg-6" style={{ marginTop: '3rem', marginBottom: '3rem', marginLeft: 'auto', marginRight: 'auto', backgroundColor: '#f0f0f0', color: '#121111', textShadow: '2px 2px #999999', borderRadius: '10px', padding: '20px' }}>
+                    <table style={{ textAlign: 'center', marginLeft: 'auto', marginRight: 'auto' }}>
+                        <tbody>
+                            <tr>
+                                <th><h1><b>X1:</b></h1></th>
+                                <td><h1>{x1}</h1></td>
+                            </tr>
+                            <tr>
+                                <th><h1><b>Y1:</b></h1></th>
+                                <td><h1>{y1}</h1></td>
+                            </tr>
+                            <tr>
+                                <th><h1><b>X2:</b></h1></th>
+                                <td><h1>{x2}</h1></td>
+                            </tr>
+                            <tr>
+                                <th><h1><b>Y2:</b></h1></th>
+                                <td><h1>{y2}</h1></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div className='mb-5 mt-5' style={{ display: 'flex', justifyContent: 'center' }}>
+                        <button className='buttonSend text-center'>
+                            <div className="svg-wrapper-1">
+                                <div className="svg-wrapper">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                                        <path fill="none" d="M0 0h24v24H0z"></path>
+                                        <path fill="currentColor" d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                            <span>Enviar</span>
+                        </button>
                     </div>
-                    <span>Enviar</span>
-                </button>
-            </div>
-            <div className="notifications-container">
-                <div className="alert">
-                    <div className="flex">
-                        <div className="alert-prompt-wrap">
-                            <h5 className="text-sm text-yellow-700">
-                            <h3 className="alert-link text-center mb-5">Lista de enlaces cinemáticos</h3>
-                                <b>1:</b> Type P θ=37.00° d=415.00mm a=0.00mm a=0.00° <br></br><br></br>
-                                <b>2:</b> Type R θ=126.00° d=0.00mm a=200.00mm a=0.00°<br></br><br></br>
-                                <b>3:</b> Type R θ=173.00° d=0.00mm a=200.00mm a=0.00°<br></br><br></br>
-                            </h5>
+                </div>
+                <div className="col-12 col-lg-6 notifications-container">
+                    <div className="alert">
+                        <div className="flex">
+                            <div className="alert-prompt-wrap">
+                                <h5 className="text-sm text-yellow-700" style={{ textAlign: 'center' }}>
+                                    <h3 className="alert-link text-center mb-5">Lista de enlaces cinemáticos</h3>
+                                    <b>1:</b> Type P θ=37.00° d=415.00mm a=0.00mm a=0.00° <br></br><br></br>
+                                    <b>2:</b> Type R θ=126.00° d=0.00mm a=200.00mm a=0.00°<br></br><br></br>
+                                    <b>3:</b> Type R θ=173.00° d=0.00mm a=200.00mm a=0.00°<br></br><br></br>
+                                </h5>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>  
         </>
     );
 }
