@@ -36,8 +36,8 @@ function App() {
                                     <td>{item.first}</td>
                                     <td>{item.last}</td>
                                     <td className="text-center">
-                                        <button className="" style={{border: 'none', backgroundColor: 'transparent'}}>
-                                            <FontAwesomeIcon icon={faTrash} bounce size="lg" style={{color: "#f90b0b"}}/>
+                                        <button className="" style={{backgroundColor: 'white', borderRadius: '1rem', width: '3rem', height: '2.6rem'}}>
+                                            <FontAwesomeIcon icon={faTrash} size="xl" style={{color: "#fa0000",}} />
                                         </button>   
                                     </td>                                
                                 </tr>

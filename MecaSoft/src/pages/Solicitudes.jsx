@@ -31,10 +31,10 @@ function Solicitudes() {
                                     <td>{item.jointPiloting}</td>
                                     <td>{item.cartesianPiloting}</td>
                                     <td className="text-center">
-                                        <button className="" style={{border: 'none', backgroundColor: 'transparent'}}>
+                                        <button className="" style={{backgroundColor: 'white', borderRadius: '1rem'}}>
                                             <FontAwesomeIcon icon={faCheck} size="2xl" style={{color: "#00ff00"}}/>
                                         </button>
-                                        <button className="" style={{border: 'none', backgroundColor: 'transparent'}}>
+                                        <button className="" style={{backgroundColor: 'white', borderRadius: '1rem'}}>
                                             <FontAwesomeIcon icon={faTimes} size="2xl" style={{color: "#ff0000"}}/>
                                         </button>
                                     </td>                              
