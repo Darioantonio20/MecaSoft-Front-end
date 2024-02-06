@@ -5,6 +5,8 @@ import NavBar from '../atoms/NavBar';
 
 function Pilotaje() {
     const [value, setValue] = useState(0);
+    const [value2, setValue2] = useState(0);
+    const [value3, setValue3] = useState(0);
 
     const handleInputChange = (e) => {
         const inputValue = e.target.value;
@@ -14,10 +16,8 @@ function Pilotaje() {
     };
 
     const calculateSize = (value) => {
-        const initialSize = 25;
-        const maxSize = 50;
-        const size = initialSize + (value / 100) * (maxSize - initialSize);
-        return `${size}px`;
+        const maxSize = 40;
+        return `${maxSize}px`;
     };
 
     useEffect(() => {
@@ -37,8 +37,8 @@ function Pilotaje() {
             confirmButtonText: 'Cambiar',
             showLoaderOnConfirm: true,
             preConfirm: (number) => {
-                if (number > 100) {
-                    Swal.showValidationMessage('The value cannot be greater than 100º');
+                if (number < -80 || number > 80) {
+                    Swal.showValidationMessage('El valor debe estar entre -80º y 80º');
                 }
             },
             allowOutsideClick: () => !Swal.isLoading()
@@ -49,6 +49,72 @@ function Pilotaje() {
         });
     };
 
+    const askForValue2 = () => {
+        Swal.fire({
+            title: 'Introduzca el valor',
+            input: 'number',
+            inputAttributes: {
+                autocapitalize: 'off'
+            },
+            showCancelButton: true,
+            cancelButtonText: 'Cancelar',
+            confirmButtonText: 'Cambiar',
+            showLoaderOnConfirm: true,
+            preConfirm: (number) => {
+                if (number < -120 || number > 120) {
+                    Swal.showValidationMessage('El valor debe estar entre -120º y 120º');
+                }
+            },
+            allowOutsideClick: () => !Swal.isLoading()
+        }).then((result) => {
+            if (result.isConfirmed) {
+                setValue2(Number(result.value));
+            }
+        });
+    };
+
+    const askForValue3 = () => {
+        Swal.fire({
+            title: 'Introduzca el valor',
+            input: 'number',
+            inputAttributes: {
+                autocapitalize: 'off'
+            },
+            showCancelButton: true,
+            cancelButtonText: 'Cancelar',
+            confirmButtonText: 'Cambiar',
+            showLoaderOnConfirm: true,
+            preConfirm: (number) => {
+                if (number < 0 || number > 250) {
+                    Swal.showValidationMessage('El valor debe estar entre 0mm y 250mm');
+                }
+            },
+            allowOutsideClick: () => !Swal.isLoading()
+        }).then((result) => {
+            if (result.isConfirmed) {
+                setValue3(Number(result.value));
+            }
+        });
+    };
+
+    const handleInputChange2 = (event) => {
+        const inputValue = event.target.value;
+        if (inputValue < -120 || inputValue > 120) {
+            alert('El valor debe estar entre -120º y 120º');
+        } else {
+            setValue2(Number(inputValue));
+        }
+    };
+
+    const handleInputChange3 = (event) => {
+        const inputValue = event.target.value;
+        if (inputValue < 0 || inputValue > 250) {
+            alert('El valor debe estar entre 0mm y 250mm');
+        } else {
+            setValue3(Number(inputValue));
+        }
+    };
+    
     return (
         <>
         <NavBar />
@@ -69,25 +135,25 @@ function Pilotaje() {
                     <div className="card-body mb-5">
                         <div className="App">
                             <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                                <button className="buttonSlider mt-2 mb-5" onClick={askForValue} style={{ marginTop: '10px' }}>
+                                    <span>Cambiar valor</span>
+                                </button>
+                            </div>
+                            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                                 <input 
                                     type="range" 
+                                    min="-80"
+                                    max="80"
                                     value={value} 
                                     onChange={handleInputChange} 
                                     style={{ 
                                         '--thumb-size': calculateSize(value)
                                     }}
                                 />
-                                <button className="buttonSlider" onClick={askForValue} style={{ marginLeft: '10px' }}>
-                                    <span>Cambiar valor</span>
-                                </button>
                             </div>
                             <div id="h4-container" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                                <div id="h4-subcontainer">
-                                    <h4 style={{ 
-                                        transform: `translateX(-50%) scale(${1 + (value / 100)})`, 
-                                        left: `${value}%`,
-                                        paddingLeft: '5rem' // Agrega esto
-                                    }}>
+                                <div id="h4-subcontainer" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                                    <h4 style={{ fontSize: '2.5em' }}>
                                         {value}º
                                         <span></span>
                                     </h4>
@@ -95,7 +161,6 @@ function Pilotaje() {
                             </div>
                         </div>
                     </div>
-                    
                 </div>
 
                 <div className="card border-0">
@@ -104,24 +169,74 @@ function Pilotaje() {
                             <div className="loader"></div>
                         </div>
                     </div>
-                    <div className="card-body">
-                    <h5 className="card-title">Card title</h5>
-                    <p className="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+                    <div className="card-body mb-5">
+                        <div className="App">
+                            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                                <button className="buttonSlider mt-2 mb-5" onClick={askForValue2} style={{ marginTop: '10px' }}>
+                                    <span>Cambiar valor</span>
+                                </button>
+                            </div>
+                            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                                <input 
+                                    type="range" 
+                                    min="-120"
+                                    max="120"
+                                    value={value2} 
+                                    onChange={handleInputChange2} 
+                                    style={{ 
+                                        '--thumb-size': calculateSize(value2)
+                                    }}
+                                />
+                            </div>
+                            <div id="h4-container" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                                <div id="h4-subcontainer" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                                    <h4 style={{ fontSize: '2.5em' }}>
+                                        {value2}º
+                                        <span></span>
+                                    </h4>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    
                 </div>
+
                 <div className="card border-0">
                     <div className="card-img-top d-flex justify-content-center align-items-center">
                         <div className="bg">
                             <div className="loader"></div>
                         </div>
                     </div>
-                    <div className="card-body">
-                    <h5 className="card-title">Card title</h5>
-                    <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+                    <div className="card-body mb-5">
+                        <div className="App">
+                            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                                <button className="buttonSlider mt-2 mb-5" onClick={askForValue3} style={{ marginTop: '10px' }}>
+                                    <span>Cambiar valor</span>
+                                </button>
+                            </div>
+                            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                                <input 
+                                    type="range" 
+                                    min="0"
+                                    max="250"
+                                    value={value3} 
+                                    onChange={handleInputChange3} 
+                                    style={{ 
+                                        '--thumb-size': calculateSize(value3)
+                                    }}
+                                />
+                            </div>
+                            <div id="h4-container" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                                <div id="h4-subcontainer" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                                    <h4 style={{ fontSize: '2.5em' }}>
+                                        {value3 + "mm"}
+                                        <span></span>
+                                    </h4>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    
                 </div>
+
             </div>
             <div className='mb-5 mt-5' style={{ display: 'flex', justifyContent: 'center' }}>
                 <button className='buttonSend text-center'>
