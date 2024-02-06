@@ -1,9 +1,11 @@
 import NavBar from "../atoms/NavBar";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCheck, faTimes } from '@fortawesome/free-solid-svg-icons';
 
 const data = [
-    { id: 1, first: 'Mark', last: 'Otto', jointPiloting: 'Data', cartesianPiloting: 'Data', date: 'Date' },
-    { id: 2, first: 'Genaroooooo', last: 'Thornton', jointPiloting: 'Data', cartesianPiloting: 'Data', date: 'Date' },
-    { id: 3, first: 'Genaroooooo', last: 'Thornton', jointPiloting: 'Data', cartesianPiloting: 'Data', date: 'Date' },
+    { id: 1, first: 'Mark', last: 'Otto', jointPiloting: 'Data', cartesianPiloting: 'Data' },
+    { id: 2, first: 'Genaroooooo', last: 'Thornton', jointPiloting: 'Data', cartesianPiloting: 'Data' },
+    { id: 3, first: 'Genaroooooo', last: 'Thornton', jointPiloting: 'Data', cartesianPiloting: 'Data' },
 ];
 
 function Solicitudes() {
@@ -19,7 +21,7 @@ function Solicitudes() {
                                 <th scope="col">Usuario</th>
                                 <th scope="col">Pilotaje Articular</th>
                                 <th scope="col">Pilotaje Cartesiano</th>
-                                <th scope="col">Fecha</th>
+                                <th scope="col" className="text-center">Acción</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -28,7 +30,14 @@ function Solicitudes() {
                                     <td>{item.first}</td>
                                     <td>{item.jointPiloting}</td>
                                     <td>{item.cartesianPiloting}</td>
-                                    <td>{item.date}</td>                              
+                                    <td className="text-center">
+                                        <button className="" style={{border: 'none', backgroundColor: 'transparent'}}>
+                                            <FontAwesomeIcon icon={faCheck} size="2xl" style={{color: "#00ff00"}}/>
+                                        </button>
+                                        <button className="" style={{border: 'none', backgroundColor: 'transparent'}}>
+                                            <FontAwesomeIcon icon={faTimes} size="2xl" style={{color: "#ff0000"}}/>
+                                        </button>
+                                    </td>                              
                                 </tr>
                             ))}
                         </tbody>
