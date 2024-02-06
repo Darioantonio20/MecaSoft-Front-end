@@ -11,9 +11,9 @@ function Pilotaje() {
     const handleInputChange = (e) => {
         const inputValue = e.target.value;
         if (!isNaN(inputValue)) {
-            setValue(Number(inputValue));
+          setValue(Number(inputValue));
         }
-    };
+      };
 
     const calculateSize = (value) => {
         const maxSize = 40;
@@ -100,20 +100,20 @@ function Pilotaje() {
     const handleInputChange2 = (event) => {
         const inputValue = event.target.value;
         if (inputValue < -120 || inputValue > 120) {
-            alert('El valor debe estar entre -120º y 120º');
+          alert('El valor debe estar entre -120º y 120º');
         } else {
-            setValue2(Number(inputValue));
+          setValue2(Number(inputValue));
         }
-    };
+      };
 
     const handleInputChange3 = (event) => {
         const inputValue = event.target.value;
         if (inputValue < 0 || inputValue > 250) {
-            alert('El valor debe estar entre 0mm y 250mm');
+          alert('El valor debe estar entre 0mm y 250mm');
         } else {
-            setValue3(Number(inputValue));
+          setValue3(Number(inputValue));
         }
-    };
+      };
     
     return (
         <>
@@ -153,10 +153,10 @@ function Pilotaje() {
                             </div>
                             <div id="h4-container" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                                 <div id="h4-subcontainer" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                                    <h4 style={{ fontSize: '2.5em' }}>
-                                        {value}º
+                                    <h5 style={{ fontSize: '1.6em' }}>
+                                    θ1: {value}º
                                         <span></span>
-                                    </h4>
+                                    </h5>
                                 </div>
                             </div>
                         </div>
@@ -190,10 +190,10 @@ function Pilotaje() {
                             </div>
                             <div id="h4-container" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                                 <div id="h4-subcontainer" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                                    <h4 style={{ fontSize: '2.5em' }}>
-                                        {value2}º
+                                    <h5 style={{ fontSize: '1.6em' }}>
+                                        θ2: {value2}º
                                         <span></span>
-                                    </h4>
+                                    </h5>
                                 </div>
                             </div>
                         </div>
@@ -227,8 +227,8 @@ function Pilotaje() {
                             </div>
                             <div id="h4-container" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                                 <div id="h4-subcontainer" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                                    <h4 style={{ fontSize: '2.5em' }}>
-                                        {value3 + "mm"}
+                                    <h4 style={{ fontSize: '1.6em' }}>
+                                        z: {value3 + "mm"}
                                         <span></span>
                                     </h4>
                                 </div>
@@ -236,7 +236,12 @@ function Pilotaje() {
                         </div>
                     </div>
                 </div>
-
+            </div>
+            <div className="col-6" style={{ display: 'flex', justifyContent: 'space-evenly', alignItems: 'center', marginTop: '3rem', marginBottom: '3rem', marginLeft: 'auto', marginRight: 'auto', backgroundColor: '#f0f0f0', color: '#121111', textShadow: '2px 2px #999999', borderRadius: '10px', padding: '20px' }}>
+                <h1><b>X1:</b> {value}</h1>
+                <h1><b>Y1:</b> {value2}</h1>
+                <h1><b>X2:</b> {value3}</h1>
+                <h1><b>Y2:</b> {value3}</h1>
             </div>
             <div className='mb-5 mt-5' style={{ display: 'flex', justifyContent: 'center' }}>
                 <button className='buttonSend text-center'>
