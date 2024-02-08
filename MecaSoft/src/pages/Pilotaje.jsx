@@ -67,14 +67,6 @@ const sendData = async () => {
             text: "Espera a la aprobación del administrador",
         });
 
-        // Crear un archivo de texto y permitir que el usuario lo descargue
-        const text = `valorX=${value}|valorY=${value2}|valorZ=${value3}`;
-        const element = document.createElement("a");
-        element.href = URL.createObjectURL(new Blob([text], { type: "text/plain" }));
-        element.download = "coordenadas.txt";
-        document.body.appendChild(element);
-        element.click();
-        document.body.removeChild(element);
     } else {
         Swal.fire({
             icon: "error",
