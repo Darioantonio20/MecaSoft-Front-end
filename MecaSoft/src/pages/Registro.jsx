@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import NavBar from "../atoms/NavBar";
-import ImgLogoMecaSoftUp from "../assets/img/LogoMecaSoftUp.png";
+import ImgLogoMecaSoftUp from "../assets/img/logoMecaSoftUp.png";
 import ImgFormLadoDerechoRegistro from "../assets/img/imgFormLadoDerechoRegistro.svg";
 import "../assets/style/Forms.css";
 import "../assets/style/Reloader.css";
