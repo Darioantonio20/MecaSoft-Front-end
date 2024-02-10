@@ -39,7 +39,7 @@ function InicioDeSesion() {
       Swal.fire({
         icon: "success",
         title: "Datos correctos",
-        text: "Bienvenido a MecaSoft",
+        text: "Bienvenido a MecaSoft " + `${data.usuario.nombre}`,
       });
       localStorage.getItem('idUser');
       navigate("/pilotaje");

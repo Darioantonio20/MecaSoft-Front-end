@@ -11,6 +11,11 @@ function NavBar() {
     navigate('/inicioDeSesion');
   };
 
+  const handleLogout = () => {
+    localStorage.removeItem('idUser');
+    navigate('/inicioDeSesion');
+  };
+
   const redirecToPilotaje = () => {
     navigate('/pilotaje');
   }
@@ -45,6 +50,7 @@ function NavBar() {
         </ul>
 
         <div className="col-md-3 text-end">
+          <button onClick={handleLogout} type="button" className="btn btn-outline-danger me-2">Cerrar sesión</button>
           <button onClick={redirectToLogin} type="button" className="btn btn-outline-danger me-2">Inicio de sesión</button>
         </div>
       </header>
