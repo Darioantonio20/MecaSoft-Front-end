@@ -35,6 +35,7 @@ function Registro() {
         password: password,
         user: user,
         matricula: matricula,
+        rol: "USER_ROL",
       }),
     });
 

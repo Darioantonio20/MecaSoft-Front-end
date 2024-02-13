@@ -33,15 +33,15 @@ function InicioDeSesion() {
     const data = await response.json();
 
     if (response.status === 200) {
-     
-      localStorage.setItem("idUser", data.usuario._id);
+    
+      localStorage.setItem("token", data.token); 
+      
 
       Swal.fire({
         icon: "success",
         title: "Datos correctos",
         text: "Bienvenido a MecaSoft " + `${data.usuario.nombre}`,
       });
-      localStorage.getItem('idUser');
       navigate("/pilotaje");
     } else {
       Swal.fire({
@@ -53,7 +53,6 @@ function InicioDeSesion() {
     console.log(data);
     setIsLoading(false);
   };
-
   return (
     <>
       {isLoading ? (

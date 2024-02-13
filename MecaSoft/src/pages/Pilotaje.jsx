@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Swal from "sweetalert2"; // Import SweetAlert2
-import "../assets/style/Pilotaje.css";
+import * as jwt_decode from 'jwt-decode';
 import NavBar from "../atoms/NavBar";
+import "../assets/style/Pilotaje.css";
 
 function Pilotaje() {
   const [value, setValue] = useState(0);
@@ -39,41 +40,45 @@ function Pilotaje() {
     }
 };
 
-
-// Función para enviar los datos
 const sendData = async () => {
-    const idUser = localStorage.getItem("idUser");
+  const token = localStorage.getItem("token");
+  const base64Url = token.split('.')[1];
+  const base64 = base64Url.replace('-', '+').replace('_', '/');
+  const decodedToken = JSON.parse(window.atob(base64));
+  const idUser = decodedToken.idUser;
 
-    // Enviar los valores a la API
-    const response = await fetch("http://localhost:8080/api/data", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-            idUser,
-            valorX: value,
-            valorY: value2,
-            valorZ: value3,
-        }),
+  // Enviar los valores a la API
+  const response = await fetch("http://localhost:8080/api/data", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "x-token": token,
+    },
+    body: JSON.stringify({
+      idUser,
+      valorX: value,
+      valorY: value2,
+      valorZ: value3,
+    }),
+  });
+
+  const data = await response.json();
+
+  if (response.status === 200) {
+
+    Swal.fire({
+      icon: "success",
+      title: "Coordenadas enviadas",
+      text: "Espera a la aprobación del administrador",
     });
 
-    const data = await response.json();
-
-    if (response.status === 200) {
-        Swal.fire({
-            icon: "success",
-            title: "Coordenadas enviadas",
-            text: "Espera a la aprobación del administrador",
-        });
-
-    } else {
-        Swal.fire({
-            icon: "error",
-            title: "Error",
-            text: "Las coordenadas no se pudieron enviar",
-        });
-    }
+  } else {
+    Swal.fire({
+      icon: "error",
+      title: "Error",
+      text: "Las coordenadas no se pudieron enviar",
+    });
+  }
 };
 
 
