@@ -35,8 +35,8 @@ function InicioDeSesion() {
     if (response.status === 200) {
     
       localStorage.setItem("token", data.token); 
-      
-
+      localStorage.setItem("idUser", data.usuario._id);
++
       Swal.fire({
         icon: "success",
         title: "Datos correctos",

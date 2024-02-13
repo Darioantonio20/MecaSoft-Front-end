@@ -16,7 +16,7 @@ function NavBar() {
 
   const handleLogout = () => {
     // Borrar el usuario del localStorage
-    localStorage.removeItem('usuario');
+    localStorage.removeItem('idUser');
     localStorage.removeItem('token');
     navigate('/inicioDeSesion');
   };

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Swal from "sweetalert2"; // Import SweetAlert2
-import * as jwt_decode from 'jwt-decode';
+import * as jwt_decode from "jwt-decode";
 import NavBar from "../atoms/NavBar";
 import "../assets/style/Pilotaje.css";
 
@@ -17,72 +17,66 @@ function Pilotaje() {
   const handleInputChange = (event) => {
     const inputValue = Number(event.target.value);
     if (!isNaN(inputValue)) {
-        switch (event.target.name) {
-            case "teta1":
-                setValue(inputValue);
-                break;
-            case "teta2":
-                if (inputValue < -120 || inputValue > 120) {
-                    alert('El valor debe estar entre -120º y 120º');
-                } else {
-                    setValue2(inputValue);
-                }
-                break;
-            case "z":
-                if (inputValue < 0 || inputValue > 250) {
-                    alert('El valor debe estar entre 0mm y 250mm');
-                } else {
-                    setValue3(inputValue);
-                }
-                break;
-        }
-        calculos();
+      switch (event.target.name) {
+        case "teta1":
+          setValue(inputValue);
+          break;
+        case "teta2":
+          if (inputValue < -120 || inputValue > 120) {
+            alert("El valor debe estar entre -120º y 120º");
+          } else {
+            setValue2(inputValue);
+          }
+          break;
+        case "z":
+          if (inputValue < 0 || inputValue > 250) {
+            alert("El valor debe estar entre 0mm y 250mm");
+          } else {
+            setValue3(inputValue);
+          }
+          break;
+      }
+      calculos();
     }
-};
+  };
 
-const sendData = async () => {
-  const token = localStorage.getItem("token");
-  const base64Url = token.split('.')[1];
-  const base64 = base64Url.replace('-', '+').replace('_', '/');
-  const decodedToken = JSON.parse(window.atob(base64));
-  const idUser = decodedToken.idUser;
+  const sendData = async () => {
+    const token = localStorage.getItem("token");
+    const idUser = localStorage.getItem("idUser");
 
-  // Enviar los valores a la API
-  const response = await fetch("http://localhost:8080/api/data", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      "x-token": token,
-    },
-    body: JSON.stringify({
-      idUser,
-      valorX: value,
-      valorY: value2,
-      valorZ: value3,
-    }),
-  });
 
-  const data = await response.json();
-
-  if (response.status === 200) {
-
-    Swal.fire({
-      icon: "success",
-      title: "Coordenadas enviadas",
-      text: "Espera a la aprobación del administrador",
+    // Enviar los valores a la API
+    const response = await fetch("http://localhost:8080/api/data", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "x-token": token,
+      },
+      body: JSON.stringify({
+        idUser: idUser,
+        valorX: value,
+        valorY: value2,
+        valorZ: value3,
+        fechaSolicitud:new Date().toISOString()
+      }),
     });
 
-  } else {
-    Swal.fire({
-      icon: "error",
-      title: "Error",
-      text: "Las coordenadas no se pudieron enviar",
-    });
-  }
-};
+    if (response.status === 200) {
+      Swal.fire({
+        icon: "success",
+        title: "Coordenadas enviadas",
+        text: "Espera a la aprobación del administrador",
+      });
+    } else {
+      Swal.fire({
+        icon: "error",
+        title: "Error",
+        text: "Las coordenadas no se pudieron enviar",
+      });
+    }
+  };
 
-
-<button onClick={sendData}>Enviar</button>
+  <button onClick={sendData}>Enviar</button>;
 
   function calculos() {
     let varX1 = 25 * Math.cos((value * Math.PI) / 180);
