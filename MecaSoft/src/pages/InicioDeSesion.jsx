@@ -33,10 +33,11 @@ function InicioDeSesion() {
     const data = await response.json();
 
     if (response.status === 200) {
-    
       localStorage.setItem("token", data.token); 
       localStorage.setItem("idUser", data.usuario._id);
-+
+      // Guardar la información completa del usuario en localStorage
+      localStorage.setItem("usuario", JSON.stringify(data.usuario));
+
       Swal.fire({
         icon: "success",
         title: "Datos correctos",
